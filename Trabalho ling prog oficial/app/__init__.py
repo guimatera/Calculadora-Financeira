@@ -18,7 +18,8 @@ lm = LoginManager(app)
 lm.init_app(app)
 
 
-from app import financeiro, tables, forms
+from app import tables, forms
+from app import financeiro
 
 
 

@@ -74,7 +74,8 @@ class dolar_cambio():
         html = urlopen(self.page_dolar)
         soup = BeautifulSoup(html.read(), 'html.parser')
         linhas = [text for text in soup.stripped_strings]
-        valor = str(linhas[170])
+        num = linhas.index('Dólar Comercial')
+        valor = str(linhas[num+1])
         return float(valor.replace(',','.'))
 
 
@@ -86,6 +87,9 @@ class euro_cambio():
         html = urlopen(self.page_euro)
         soup = BeautifulSoup(html.read(), 'html.parser')
         linhas = [text for text in soup.stripped_strings]
-        valor = str(linhas[178])
+        num = linhas.index('Euro')
+        valor = str(linhas[num+1])
         return float(valor.replace(',','.'))
+
+
         

@@ -41,7 +41,7 @@ color: white;
     <br></br>
     <div class="form-group">
         <label for="password">Senha:</label>
-        {{ form.password(class="form-control") }}
+        {{ form.password(class="form-control", placeholder="Senha") }}
         {% if form.password.errors %}
             {% for error in form.password.errors %}
             <br></br>

@@ -1,7 +1,6 @@
 from flask import Flask, render_template, request, redirect, url_for ,flash
 from flask_login import login_user , current_user , logout_user
 from app.forms import LoginForm, RegisterForm
-from app.modelo import usuario
 from app.tables import User
 from app.webscrapping import poupanca, fundos, acoes, dolar_cambio, euro_cambio
 from app import app, db, lm
@@ -9,7 +8,6 @@ from app import app, db, lm
 @lm.user_loader
 def load_user(id):
     return User.query.filter_by(id=id).first()
-
 
 @app.route('/index', methods = ['POST', 'GET'])
 def begin():
@@ -26,16 +24,15 @@ def signin():
         if user:
             login_user(user)
             return render_template("homepage.html")
-            #return(url_for('homepage'))
     else:
-        print(form.errors)
+        pass
     return render_template('form.html', form=form)
 
 @app.route('/logout', methods = ['POST', 'GET'])
 def logout():
     if request.method == 'POST':
         logout_user()
-        return redirect(url_for('begin'))
+    return redirect(url_for('begin'))
 
 @app.route('/register', methods=["GET","POST"])
 def register():
@@ -49,7 +46,7 @@ def register():
         except:
             return redirect(url_for("register"))
     else:
-        print(form.errors)
+        pass
     return render_template('registro.html', form=form)
 
 
