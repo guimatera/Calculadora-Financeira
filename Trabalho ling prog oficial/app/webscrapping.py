@@ -30,23 +30,6 @@ class fundos():
         else: 
             valor = -1+float(valor)/100
             return pow(valor,1/12)
-   
-'''
-class cripto():
-    def __init__(self, page_cripto = 'https://www.infomoney.com.br/cotacoes/bitcoin-btc/'):
-        self.page_cripto = page_cripto
-   
-    def get_cripto(self):
-        html = urlopen(self.page_cripto)
-        soup = BeautifulSoup(html.read(), 'html.parser')
-        linhas = [text for text in soup.stripped_strings]
-        valor = str(linhas[189])[:-1]
-        if float(valor) > 0:
-            return 1+float(valor)/100
-        else: 
-            return -1+float(valor)/100
-'''
-
  
 class acoes():
     def __init__(self, page_acoes = 'https://www.infomoney.com.br/cotacoes/ibovespa/'):
